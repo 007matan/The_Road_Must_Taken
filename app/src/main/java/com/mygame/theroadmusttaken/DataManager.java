@@ -11,19 +11,19 @@ public class DataManager {
 
     private Game_Layout gameLayout;
     private ArrayList<Cell> roadsLayoutMatrix;
-
+    /*
     public DataManager()
     {
         gameLayout = new Game_Layout();
         roadsLayoutMatrix= new ArrayList<>();
-        gameLayout.setDifficultyLevelBuilder(new Easy_Difficulty_Level_Builder());
-        gameLayout.constructDifficultyLevel();
-        initMatrix(gameLayout.getDifficultyLevelBuilder().getMatCols(),
-                gameLayout.getDifficultyLevelBuilder().getMatRows());
     }
-
+    */
     public DataManager (Difficulty_Level_Builder difficultyLevelBuilder){
-        super();
+        //super();
+        gameLayout = new Game_Layout();
+        roadsLayoutMatrix= new ArrayList<>();
+        gameLayout = new Game_Layout();
+        roadsLayoutMatrix= new ArrayList<>();
         gameLayout.setDifficultyLevelBuilder(difficultyLevelBuilder);
         gameLayout.constructDifficultyLevel();
         initMatrix(difficultyLevelBuilder.getDifficultyLevel().getMatCols(),
@@ -80,7 +80,7 @@ public class DataManager {
                         getGameLayout().getDifficultyLevelBuilder().getMatRows())
             getRoadsLayoutMatrix().get(indexOfRock+getGameLayout().getDifficultyLevelBuilder().getMatCols()).setRock(new Rock());
     }
-/*
+
     private void setCoinIndex(int indexOfCoin){
         getRoadsLayoutMatrix().get(indexOfCoin).setCoin(null);
         if(indexOfCoin+getGameLayout().getDifficultyLevelBuilder().getMatCols() <
@@ -88,6 +88,6 @@ public class DataManager {
                         getGameLayout().getDifficultyLevelBuilder().getMatRows())
             getRoadsLayoutMatrix().get(indexOfCoin+getGameLayout().getDifficultyLevelBuilder().getMatCols()).setCoin(new Coin());
     }
-    */
+
 
 }

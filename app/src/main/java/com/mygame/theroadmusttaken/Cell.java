@@ -2,18 +2,17 @@ package com.mygame.theroadmusttaken;
 
 public class Cell {
 
-    //private Coin coin;
+    private Coin coin;
     private Rock rock;
     private Car car;
 
     public Cell(){
     }
-    /*
+
     public Cell setCoin(Coin coin) {
         this.coin = coin;
         return this;
     }
-     */
 
     public Cell setRock(Rock rock) {
         this.rock = rock;
@@ -32,9 +31,9 @@ public class Cell {
     public Car getCar() {
         return car;
     }
-    /*
+
     public Coin getCoin() {
         return coin;
     }
-     */
+
 }

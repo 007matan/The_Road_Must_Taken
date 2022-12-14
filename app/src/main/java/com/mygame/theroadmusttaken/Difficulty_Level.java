@@ -6,6 +6,15 @@ public class Difficulty_Level {
     private int heartNum;
     private int matRows;
     private int matCols;
+    private int NUM_STEP_IN_PHASE;
+
+    public int getNUM_STEP_IN_PHASE() {
+        return NUM_STEP_IN_PHASE;
+    }
+
+    public void setNUM_STEP_IN_PHASE(int NUM_STEP_IN_PHASE) {
+        this.NUM_STEP_IN_PHASE = NUM_STEP_IN_PHASE;
+    }
 
     public void setspeedRate(double speedRate) {
         this.speedRate = speedRate;

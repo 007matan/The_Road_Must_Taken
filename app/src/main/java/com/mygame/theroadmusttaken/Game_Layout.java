@@ -21,6 +21,7 @@ public class Game_Layout {
         difficultyLevelBuilder.buildSpeedRate();
         difficultyLevelBuilder.buildMatCols();
         difficultyLevelBuilder.buildMatRows();
+        difficultyLevelBuilder.buildNUM_STEP_IN_PHASE();
     }
     public int getIndexCarStartPos()
     {

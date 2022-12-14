@@ -16,4 +16,5 @@ abstract class Difficulty_Level_Builder {
     public abstract void buildHeartNum();
     public abstract void buildMatRows();
     public abstract void buildMatCols();
+    public abstract void buildNUM_STEP_IN_PHASE();
 }

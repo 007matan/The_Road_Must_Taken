@@ -1,7 +1,8 @@
 package com.mygame.theroadmusttaken;
 
-public class Easy_Difficulty_Level_Builder extends Difficulty_Level_Builder{
 
+
+public class Easy_Difficulty_Level_Builder extends Difficulty_Level_Builder{
 
     @Override
     public void buildSpeedRate() {
@@ -25,5 +26,10 @@ public class Easy_Difficulty_Level_Builder extends Difficulty_Level_Builder{
         } catch (PossibleNumberOfColumnException e) {
             e.getMassage();
         }
+    }
+
+    @Override
+    public void buildNUM_STEP_IN_PHASE() {
+        difficultyLevel.setNUM_STEP_IN_PHASE(3);
     }
 }

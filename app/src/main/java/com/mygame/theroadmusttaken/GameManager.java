@@ -1,6 +1,5 @@
 package com.mygame.theroadmusttaken;
 
-import android.os.Handler;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -11,40 +10,62 @@ public class GameManager {
 
 
     protected static final int MAX_NUM_LIFES = 3;
-    private static final int ROW_TWO_UNSEEN = 2;
+    //private static final int MEDIUM_LEVEL_UNSEEN_DROP = 5;
+    //private static final int EASY_LEVEL_UNSEEN_DROP = 8;
     private DataManager dataManager;
     //private int indexOfCar; // Moving Right & Left
-    private ArrayList<Integer> indexesOfRocksArr = new ArrayList<>(); // Moving Down
-    //private ArrayList<Integer> indexesOfCoins = new ArrayList<>(); // Moving Down
+    private ArrayList<Integer> indexesOfRocksArr;// Moving Down
+    private ArrayList<Integer> indexesOfCoinsArr;// Moving Down
     private int lifes;
-    //private int score;
+    private int score;
+    private int distance;
+    //private static int NumStepInPhaseForRock = 0;
+    //private static int NumStepInPhaseForCoin = 0;
 
-/*
-    public void getIndexOfCar()
-    {}
 
- */
+    public GameManager(Difficulty_Level_Builder difficultyLevelBuilder
+    ) {
 
-    public GameManager() {
-        dataManager = new DataManager();
+        indexesOfRocksArr = new ArrayList<>();
+        indexesOfCoinsArr = new ArrayList<>();
+        dataManager = new DataManager(difficultyLevelBuilder);
         initRoadGame();
+        //NumStepInPhaseForRock = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
+        //NumStepInPhaseForCoin = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
     }
 
     private void initRoadGame() {
         //happened only once
         setLifes();
-        //setScore();
+        setScore();
+        setDistance();
         // * set first rock locations (index between)
-        setRocksLocations(ROW_TWO_UNSEEN);
+        setRocksLocations(getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE());
+        setCoinsLocations(getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE());
+
     }
-    /*
+
     private void setScore() {
         this.score = 0;
     }
-*/
+    private void setDistance(){
+        this.distance = 0;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
 
     public ArrayList<Integer> getIndexesOfRocksArr() {
         return indexesOfRocksArr;
+    }
+
+    public ArrayList<Integer> getIndexesOfCoinsArr() {
+        return indexesOfCoinsArr;
     }
 
     public int getLifes() {
@@ -62,107 +83,122 @@ public class GameManager {
         return this.lifes;
     }
 
-    private void setRocksLocations(int level) {
-        int lowLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols();
-        int highLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() * level;
-        boolean isAvilableEmptyPlace = false;
-        int randomIndexForNewRock = new Random().nextInt((highLimit - lowLimit) + 1) + lowLimit;
-        randomIndexForNewRock *= -1;
-        //if() there are already coin or rock
-        for(int i = 0; i < indexesOfRocksArr.size(); i++){
-            if(randomIndexForNewRock == indexesOfRocksArr.get(i)) /*|| randomIndexForNewRock == indexesOfRocksArr.get(i)*/
-                isAvilableEmptyPlace = true;
-        }
-        if(!isAvilableEmptyPlace)
-            indexesOfRocksArr.add(randomIndexForNewRock);
+    public void updateDistance(int meter) {
+        this.distance += meter;
     }
-    /*
-    private void setCoinsLocations(int level) {
-        int lowLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols();
-        int highLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() * level;
-        boolean isAvilableEmptyPlace = false;
-        int randomIndexForNewRock = new Random().nextInt((highLimit - lowLimit) + 1) + lowLimit;
-        randomIndexForNewRock *= -1;
 
-        //if() there are already coin or rock
-        for(int i = 0; i <= indexesOfRocksArr.size(); i++){
-            if(randomIndexForNewRock == indexesOfRocksArr.get(i) || randomIndexForNewRock == indexesOfRocksArr.get(i))
-                isAvilableEmptyPlace = true;
-        }
-        if(!isAvilableEmptyPlace)
+    private void setRocksLocations(int level) {
+        if((getDistance()+1) % level== 0) {
+            int lowLimit = 0;
+            int highLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols();
+            boolean isAvilableEmptyPlaceForRock = false;
+            int randomIndexForNewRock = new Random().nextInt((highLimit - lowLimit));
+            randomIndexForNewRock *= -1;
+            //if() there are already coin or rock
+            for (int coinsidx = 0; coinsidx < indexesOfCoinsArr.size(); coinsidx++) {
+                if (randomIndexForNewRock == indexesOfCoinsArr.get(coinsidx) /*|| randomIndexForNewCoin == indexesOfCoinsArr.get(i)*/)
+                    isAvilableEmptyPlaceForRock = true;
+            }
+            for (int rocksIdx = 0; rocksIdx < indexesOfRocksArr.size(); rocksIdx++) {
+                if (randomIndexForNewRock == indexesOfRocksArr.get(rocksIdx)) /*|| randomIndexForNewRock == indexesOfRocksArr.get(i)*/
+                    isAvilableEmptyPlaceForRock = true;
+            }
+            if (!isAvilableEmptyPlaceForRock)
                 indexesOfRocksArr.add(randomIndexForNewRock);
         }
     }
-     */
+
+    private void setCoinsLocations(int level) {
+        if((getDistance()+1) % level == 0) {
+            int lowLimit = 0;
+            int highLimit = dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols();
+            boolean isAvilableEmptyPlaceForCoin = false;
+            int randomIndexForNewCoin = new Random().nextInt((highLimit - lowLimit));
+            randomIndexForNewCoin *= -1;
+
+            //if() there are already coin or rock
+            for (int rocksIdx = 0; rocksIdx < indexesOfRocksArr.size(); rocksIdx++) {
+                if (randomIndexForNewCoin == indexesOfRocksArr.get(rocksIdx)) /*|| randomIndexForNewRock == indexesOfRocksArr.get(i)*/
+                    isAvilableEmptyPlaceForCoin = true;
+            }
+            for (int coinsidx = 0; coinsidx < indexesOfCoinsArr.size(); coinsidx++) {
+                if (randomIndexForNewCoin == indexesOfCoinsArr.get(coinsidx) /*|| randomIndexForNewCoin == indexesOfCoinsArr.get(i)*/)
+                    isAvilableEmptyPlaceForCoin = true;
+            }
+
+            if (!isAvilableEmptyPlaceForCoin)
+                indexesOfCoinsArr.add(randomIndexForNewCoin);
+        }
+    }
+
 
     public void setLifes() {
         this.lifes = dataManager.getGameLayout().getDifficultyLevelBuilder().getHeartNum();
     }
 
     public void deleteExpiresRockFromArray(){
-        for(int i = 0; i < indexesOfRocksArr.size(); i++){
-           if(indexesOfRocksArr.get(i) > dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
+        for(int dERidx = 0; dERidx < indexesOfRocksArr.size(); dERidx++){
+           if(indexesOfRocksArr.get(dERidx) > dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
                                     * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
                                     - dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1){
-               indexesOfRocksArr.remove(i);
+               indexesOfRocksArr.remove(dERidx);
            }
         }
     }
 
-    /*
+
     public void deleteExpiresCoinsFromArray(){
-        int i = 0;
-        while(!indexesOfCoins.isEmpty()){
-            if(indexesOfCoins.get(i) > dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
-                    * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
-                    - dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1){
-                indexesOfCoins.remove(i);
-            }
-            i++;
+        for(int dECidx = 0; dECidx < indexesOfCoinsArr.size(); dECidx++){
+           if(indexesOfCoinsArr.get(dECidx) > dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
+                                    * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
+                                    - dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1){
+               indexesOfCoinsArr.remove(dECidx);
+           }
         }
     }
-     */
+
 
     public boolean mainFunction(){
         boolean heat = false;
         layoutElementsDown();
+        updateDistance(1);
         if(checkRockClash()) {
-           if(updateLifes(-1) == 0)
+           if(updateLifes(-1) == 0) {
                Log.w("Game_Over", "Crush!!! Game Over");
+           }
            heat = true;
         }
-        /*
+
         if(checkCoinClash()) {
             earnCoin();
         }
-         */
+
 
        deleteExpiresRockFromArray();
-       //deleteExpiresCoinsFromArray();
+       deleteExpiresCoinsFromArray();
 
+
+        setCoinsLocations(getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE());
 
         //each difficult have diffrent accessable places to drop a rock
-        int unSeenRowsLevelToStartDroppinRock = new Random().nextInt((
-                getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()- 1) + 1) + 1;
-        setRocksLocations(unSeenRowsLevelToStartDroppinRock);
 
-        /*
-        int unSeenRowsLevelToStartDroppinCoin = new Random().nextInt((
-                getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() * 2- 1) + 1) + 1;
-        setCoinsLocations(unSeenRowsLevelToStartDroppinCoin);
+        setRocksLocations(getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE());
 
-         */
+
+
+
+
         return heat;
     }
-    /*
+
     private void earnCoin()
     {
         this.score++;
     }
-*/
+
     private void layoutElementsDown() {
         rocksDown();
-        //coinsDown();
+        coinsDown();
         updateRoadsMatrix();
     }
 
@@ -178,61 +214,51 @@ public class GameManager {
                 getDataManager().getRoadsLayoutMatrix().get(roadsMatIndex)
                         //setRockIndex - is function on data manger
                         //actually we are not allowed to do that up here
-                        /* .setCoin(null)*/
+                         .setCoin(null)
                         .setRock(null);
             }
         }
         for(int rocksMatIndex = 0; rocksMatIndex < indexesOfRocksArr.size();rocksMatIndex++){
-            if(indexesOfRocksArr.get(rocksMatIndex) > 0) {
+            if(indexesOfRocksArr.get(rocksMatIndex) > 0 &&
+                    indexesOfRocksArr.get(rocksMatIndex) < getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
+                            getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
                 getDataManager().getRoadsLayoutMatrix().get(indexesOfRocksArr.get(rocksMatIndex)).setRock(new Rock());
                 // and up here
             }
         }
-        /*
-        while(!indexesOfCoinsArr.isEmpty()){
-            if(indexesOfRocksArr.get(rocksMatIndex) > 0){
+        for(int coinsMatIndex = 0; coinsMatIndex < indexesOfCoinsArr.size();coinsMatIndex++){
+            if(indexesOfCoinsArr.get(coinsMatIndex) > 0 &&
+                    indexesOfCoinsArr.get(coinsMatIndex) < getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
+                            getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
                 getDataManager().getRoadsLayoutMatrix().get(indexesOfCoinsArr.get(coinsMatIndex)).setCoin(new Coin());
-                coinsMatIndex++;
+                // and up here
             }
         }
-         */
     }
 
-//    private void coinsDown() {
-//        int newVal;
-//        for(int i = 0; i < indexesOfCoinsArr.size(); i++){
-//            newVal = indexesOfCoins.get(i) + getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatRows();
-//            indexesOfCoins.set(i, newVal);
-//        }
-//    }
+    private void coinsDown() {
+        int coinNewVal;
+        for(int cDownidx = 0; cDownidx < indexesOfCoinsArr.size(); cDownidx++){
+            coinNewVal = indexesOfCoinsArr.get(cDownidx) + getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols();
+            indexesOfCoinsArr.set(cDownidx, coinNewVal);
+        }
+    }
 
     private void rocksDown() {
-        int newVal;
-        for(int i = 0; i < indexesOfRocksArr.size(); i++){
-            newVal = indexesOfRocksArr.get(i) + getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols();
-            indexesOfRocksArr.set(i, newVal);
+        int rockNewVal;
+        for(int rDownidx = 0; rDownidx < indexesOfRocksArr.size(); rDownidx++){
+            rockNewVal = indexesOfRocksArr.get(rDownidx) + getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols();
+            indexesOfRocksArr.set(rDownidx, rockNewVal);
         }
     }
 
     private boolean checkRockClash() {
-        /*
-        int i = 0;
-        while(!indexesOfRocksArr.isEmpty() && (indexesOfRocksArr.get(i) >
-                dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
-                * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
-                - dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1)){
-            if(indexesOfRocksArr.get(i) == getDataManager().getIndexOfRacingCar())
-                return true;
-            i++;
-        }
-        return false;
-        */
-        for(int i = 0; i < indexesOfRocksArr.size() ; i++){
-            if(indexesOfRocksArr.get(i) >
+        for(int cRCidx = 0; cRCidx < indexesOfRocksArr.size() ; cRCidx++){
+            if(indexesOfRocksArr.get(cRCidx) >
                     dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
                             * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
                             - (dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()*2) - 1){
-                if(indexesOfRocksArr.get(i) == getDataManager().getIndexOfRacingCar()){
+                if(indexesOfRocksArr.get(cRCidx) == getDataManager().getIndexOfRacingCar()){
                     return true;
                 }
             }
@@ -242,33 +268,36 @@ public class GameManager {
 
 
 
-//    private boolean checkCoinClash() {
-//        int i = 0;
-//        while(!indexesOfCoins.isEmpty() && (indexesOfRocks.get(i) >
-//                dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
-//                        * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
-//                        - dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1)){
-//            if(indexesOfCoins.get(i) == getIndexOfCar())
-//                return true;
-//            i++;
-//        }
-//        return false;
-//    }
+    private boolean checkCoinClash() {
+        for(int cCCidx = 0; cCCidx < indexesOfCoinsArr.size() ; cCCidx++){
+            if(indexesOfCoinsArr.get(cCCidx) >
+                    dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()
+                            * dataManager.getGameLayout().getDifficultyLevelBuilder().getMatRows()
+                            - (dataManager.getGameLayout().getDifficultyLevelBuilder().getMatCols()*2) - 1){
+                if(indexesOfCoinsArr.get(cCCidx) == getDataManager().getIndexOfRacingCar()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public boolean moveCar(DataManager.Car_Direction turn_direction){
         //Check if legal/valid
-        boolean heat = false;
         if(isValidTurn(turn_direction))
         {
             changeCarLocation(turn_direction);
             if(checkRockClash()) {
                 if (updateLifes(-1) == 0) {
                     Log.w("Game_Over", "Crush!!! Game Over");
-
                 }
+            }
+            if(checkCoinClash()) {
+                earnCoin();
             }
              return true;
             //hit but the driver can drive to rock, not out of bounds, so promitted move - thats why true
+
         }
 
         return false;
@@ -280,30 +309,21 @@ public class GameManager {
 
     private boolean isValidTurn(DataManager.Car_Direction turn_direction) {
         int indexCurrLocation = getDataManager().getIndexOfRacingCar();
-        int indexofWishTurn = 0;
         if(turn_direction == DataManager.Car_Direction.LEFT_DIRECTION){
             if(indexCurrLocation % getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() == 0)
                 return false;
             else
                 return true;
-                //indexofWishTurn = indexCurrLocation - 1 ;
         }
         else if(turn_direction == DataManager.Car_Direction.RIGHT_DIRECTION){
-            if(indexofWishTurn % getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() ==
-                    getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1)
+            if(indexCurrLocation % getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() ==
+                    getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1) {
                 return false;
-            else
+            }
+            else{
                 return true;
+                }
         }
-
-/*
-        if((indexofWishTurn % getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() == 0)
-        || indexofWishTurn % getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() ==
-                getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() - 1){
-            return false;
-        }
-
- */
         return false;
 
     }

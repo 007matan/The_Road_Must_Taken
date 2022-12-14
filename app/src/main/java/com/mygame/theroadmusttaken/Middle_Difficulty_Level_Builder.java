@@ -2,6 +2,7 @@ package com.mygame.theroadmusttaken;
 
 public class Middle_Difficulty_Level_Builder extends Difficulty_Level_Builder{
 
+
     @Override
     public void buildSpeedRate() {
         difficultyLevel.setspeedRate(0.75);
@@ -14,7 +15,7 @@ public class Middle_Difficulty_Level_Builder extends Difficulty_Level_Builder{
 
     @Override
     public void buildMatRows() {
-        difficultyLevel.setMatRows(7);
+        difficultyLevel.setMatRows(14);
     }
 
     @Override
@@ -24,5 +25,10 @@ public class Middle_Difficulty_Level_Builder extends Difficulty_Level_Builder{
         } catch (PossibleNumberOfColumnException e) {
             e.getMassage();
         }
+    }
+
+    @Override
+    public void buildNUM_STEP_IN_PHASE() {
+        difficultyLevel.setNUM_STEP_IN_PHASE(2);
     }
 }
