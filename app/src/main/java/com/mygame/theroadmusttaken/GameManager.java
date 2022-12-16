@@ -1,12 +1,21 @@
 package com.mygame.theroadmusttaken;
 
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
+
+import com.google.gson.Gson;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.Random;
 
-public class GameManager {
 
+public class GameManager {
 
 
     protected static final int MAX_NUM_LIFES = 3;
@@ -22,17 +31,24 @@ public class GameManager {
     //private static int NumStepInPhaseForRock = 0;
     //private static int NumStepInPhaseForCoin = 0;
 
+    private RecordList recordArr;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public GameManager(Difficulty_Level_Builder difficultyLevelBuilder
     ) {
 
         indexesOfRocksArr = new ArrayList<>();
         indexesOfCoinsArr = new ArrayList<>();
+        recordArr = new RecordList();
         dataManager = new DataManager(difficultyLevelBuilder);
         initRoadGame();
+        setRecordsArrFromSP();
         //NumStepInPhaseForRock = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
         //NumStepInPhaseForCoin = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
     }
+
+
 
     private void initRoadGame() {
         //happened only once
@@ -158,6 +174,7 @@ public class GameManager {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean mainFunction(){
         boolean heat = false;
         layoutElementsDown();
@@ -165,6 +182,7 @@ public class GameManager {
         if(checkRockClash()) {
            if(updateLifes(-1) == 0) {
                Log.w("Game_Over", "Crush!!! Game Over");
+               insertRecord();
            }
            heat = true;
         }
@@ -189,6 +207,49 @@ public class GameManager {
 
 
         return heat;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setRecordsArrFromSP() {
+        String recordListSP = RecordSP.getInstance().getString("SP_KEY_RECORD_LIST", "Nun");
+        if(recordListSP != "Nun") {
+            RecordList recordList = new Gson().fromJson(recordListSP, RecordList.class);
+            this.recordArr = recordList;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void insertRecord() {
+        Date date = new Date();
+        LocalDate localDate = LocalDate.now();
+        //Need to get gps location
+        int latTelAviv  = 32;
+        int logTelAviv = 35;
+        int rPoints = this.distance+this.getScore()*2;
+        Record record = new Record(localDate, latTelAviv, logTelAviv, rPoints);
+        if(recordArr.getRecords().size() >= 10){
+            this.recordArr.getRecords().add(record);
+            Collections.sort(recordArr.getRecords());
+            this.recordArr.getRecords().remove(0);
+        }
+        else{
+            this.recordArr.getRecords().add(record);
+        }
+
+        //RecordSP.getInstance().putString("1", "walla");
+
+        String recordListJson = new Gson().toJson(recordArr);
+        RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", recordListJson);
+
+        //First install Jackson
+        /*
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        String rJson = mapper.writeWithDefaultPrettyPrinter().writeValueAsString(recordArr);
+        RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", rJson);
+
+         */
+
     }
 
     private void earnCoin()
@@ -282,6 +343,7 @@ public class GameManager {
         return false;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean moveCar(DataManager.Car_Direction turn_direction){
         //Check if legal/valid
         if(isValidTurn(turn_direction))
@@ -290,6 +352,7 @@ public class GameManager {
             if(checkRockClash()) {
                 if (updateLifes(-1) == 0) {
                     Log.w("Game_Over", "Crush!!! Game Over");
+                    insertRecord();
                 }
             }
             if(checkCoinClash()) {
