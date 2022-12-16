@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF000">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00BAFA"
+        android:text="Record List"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="500dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView">
+
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:text="Place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:layout_marginHorizontal="17dp"
+                android:layout_column="2"
+                android:layout_weight="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show In map"
+                android:layout_column="3"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_st"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_st"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_st"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_nd"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_nd"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_nd"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_rd"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_rd"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_rd"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_fourth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_fourth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_fourth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_fifth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_fifth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_fifth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_sixth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_sixth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_sixth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_seventh"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_seventh"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_seventh"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_eighth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_eighth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_eighth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_nineth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_nineth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_nineth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fragmentList_Place_TV_tenth"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/fragmentList_Date_TV_tenth"
+                android:text="99.99.9999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragmentList_Location_MB_tenth"
+                android:text="select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

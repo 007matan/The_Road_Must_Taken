@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/img_field_background"/>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_stRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_stIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_ndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_rdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_ndRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_seventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_egihtIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_ninthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_tenthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_rdRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_eleventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twelvethIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirdteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fifteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_fourthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_seventeenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_eighteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_nineteenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_fifthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentystIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyrdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_ftwentyfourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyfifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_sixthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentysixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyseventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyeighthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_twentyninthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_seventhRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtystIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyrdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyfourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyfifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_eighthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtysixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtysevenIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyeighthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_thirtyninethIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_ninethRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtystIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyrdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyfourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyfifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_tenthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtysixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyseventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyeighthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fourtyninethIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_eleventhRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftystIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyrdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyfourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyfifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_twelevethRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftysixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyseventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyeighthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/ic_racing_car"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_fiftyninethIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_thirdteenthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtystIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyndIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyrdIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyfourthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyfifthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_LLC_fourteenthRow_middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtysixthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyseventhIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyeighthIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_sixtyninethIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_SIM_seventyIndex_middle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/main_FB_left_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#8657c5"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="50dp"
+        app:icon="@drawable/ic_right" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/main_FB_Right_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#8657c5"
+        app:icon="@drawable/ic_left" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_SIM_fifthLife_middle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/ic_heart"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_SIM_fourthLife_middle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_heart"
+            android:visibility="invisible"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_SIM_rdLife_middle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_heart"
+            android:visibility="invisible"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_SIM_ndLife_middle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_heart"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_SIM_stLife_middle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_heart"
+            android:scaleType="fitCenter"/>
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="615dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/main_MTV_score_middle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="40sp"
+            android:text="Score:"
+            android:layout_weight="3"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/main_MTV_score_output_middle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="40sp"
+            android:layout_weight="2"
+            android:editable="false"
+            android:scaleType="fitCenter"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/main_MTV_distance_middle"
+            android:textSize="40sp"
+            android:layout_width="0dp"
+            android:text="Dist:"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="fitCenter"/>
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/main_MTV_distance_output_middle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="40sp"
+            android:editable="false"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"/>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
