@@ -36,6 +36,10 @@ public class EasyDiffyActivity extends AppCompatActivity {
 
     private GameManager gameManager;
 
+    private StepDetector stepDetector;
+
+    private String stepDetctorOrder;
+
     final int DELAY = 1000;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -52,6 +56,16 @@ public class EasyDiffyActivity extends AppCompatActivity {
         initViews();
         updateView();
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            stepDetctorOrder = extras.getString("input_type");
+        }
+        if(stepDetctorOrder.contains("SENSORS")) {
+            stepDetector = new StepDetector(this, callBack_steps);
+            main_FB_Left.setVisibility(View.INVISIBLE);
+            main_FB_Right.setVisibility(View.INVISIBLE);
+        }
+
 
         startTimer();
         /*
@@ -59,6 +73,54 @@ public class EasyDiffyActivity extends AppCompatActivity {
             funcInDelay();
 
          */
+    }
+
+    private StepDetector.CallBack_steps callBack_steps = new StepDetector.CallBack_steps() {
+        @Override
+        public void smallRightStep() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                clicked(DataManager.Car_Direction.RIGHT_DIRECTION);
+            }
+        }
+
+        @Override
+        public void bigRightStep() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                clicked(DataManager.Car_Direction.RIGHT_DIRECTION);
+                clicked(DataManager.Car_Direction.RIGHT_DIRECTION);
+            }
+        }
+
+        @Override
+        public void smallLeftStep() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                clicked(DataManager.Car_Direction.LEFT_DIRECTION);
+            }
+        }
+
+        @Override
+        public void bigLeftStep() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                clicked(DataManager.Car_Direction.LEFT_DIRECTION);
+                clicked(DataManager.Car_Direction.LEFT_DIRECTION);
+            }
+        }
+    };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(stepDetctorOrder.contains("SENSORS")) {
+            stepDetector.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(stepDetctorOrder.contains("SENSORS")) {
+            stepDetector.stop();
+        }
     }
 
     private Timer timer = new Timer();

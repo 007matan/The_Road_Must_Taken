@@ -1,30 +1,17 @@
 package com.mygame.theroadmusttaken;
 
-import static com.mygame.theroadmusttaken.GameManager.MAX_NUM_LIFES;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.view.View;
 import android.widget.RadioButton;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String SENSORS_STRING = "SENSORS";
+    private static final String BUTTONS_STRING = "BUTTONS";
 
     private MaterialButton main_MB_Play;
     private MaterialButton main_MB_Top_Ten;
@@ -40,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         initViews();
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("key");
+            //The key argument here must match that used in the other activity
+        }
+
 
     }
 
@@ -50,12 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void clickedPlay() {
         Intent intent;
+        String inputType = "";
         if(main_RB_Easy.isChecked()){
             intent = new Intent(MainActivity.this, EasyDiffyActivity.class);
+
         }
         else{
             intent = new Intent(MainActivity.this, MiddleDiffyActivity.class);
         }
+        if(main_RB_Sensors.isChecked()){
+            inputType= SENSORS_STRING;
+        }
+        else{
+            inputType= BUTTONS_STRING;
+        }
+        intent.putExtra("input_type",inputType);
         startActivity(intent);
         finish();
     }
