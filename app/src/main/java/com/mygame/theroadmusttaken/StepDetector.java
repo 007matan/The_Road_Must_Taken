@@ -13,6 +13,11 @@ public class StepDetector {
         void bigRightStep();
         void smallLeftStep();
         void bigLeftStep();
+
+        void fasterStep();
+        void fastestStep();
+        void lowerStep();
+        void lowestStep();
     }
 
     private SensorManager sensorManager;
@@ -89,6 +94,42 @@ public class StepDetector {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_steps != null) {
                     callBack_steps.bigRightStep();
+                }
+            }
+        }
+
+        if (y < -6.0) {
+            if (System.currentTimeMillis() - timeStamp > 500) {
+                timeStamp = (int) System.currentTimeMillis();
+                if (callBack_steps != null) {
+                    callBack_steps.lowerStep();
+                }
+            }
+        }
+
+        if (y < -9.0) {
+            if (System.currentTimeMillis() - timeStamp > 500) {
+                timeStamp = (int) System.currentTimeMillis();
+                if (callBack_steps != null) {
+                    callBack_steps.lowestStep();
+                }
+            }
+        }
+
+        if (y > 6.0) {
+            if (System.currentTimeMillis() - timeStamp > 500) {
+                timeStamp = (int) System.currentTimeMillis();
+                if (callBack_steps != null) {
+                    callBack_steps.fasterStep();
+                }
+            }
+        }
+
+        if (y > 9.0) {
+            if (System.currentTimeMillis() - timeStamp > 500) {
+                timeStamp = (int) System.currentTimeMillis();
+                if (callBack_steps != null) {
+                    callBack_steps.fastestStep();
                 }
             }
         }

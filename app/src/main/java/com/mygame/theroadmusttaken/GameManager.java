@@ -236,7 +236,7 @@ public class GameManager {
         //double logTelAviv  = EasyDiffyActivity.getLog_Game_Easy();
         callBack_location.shortcut_configure_premission();
         double recLat = callBack_location.getLatFromActivity_Game();
-        double recLog = callBack_location.getLatFromActivity_Game();
+        double recLog = callBack_location.getLogFromActivity_Game();
 
         int rPoints = this.distance+this.getScore()*2;
         Record record = new Record(localDate, latTelAviv, logTelAviv, rPoints);

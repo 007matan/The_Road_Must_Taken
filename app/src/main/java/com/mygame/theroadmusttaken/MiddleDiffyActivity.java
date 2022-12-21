@@ -56,6 +56,8 @@ public class MiddleDiffyActivity extends AppCompatActivity {
     final int DELAY = 500;
     public static double lat_Game_Medium = 30.3;
     public static double log_Game_Medium = 38.9;
+    private int chnagedDelay;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -117,7 +119,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                 configure_button();
             }
         });*/
-
+        chnagedDelay = DELAY;
         startTimer();
         /*
         for(int i = 0; i < 20; i++)
@@ -228,6 +230,26 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                 clicked(DataManager.Car_Direction.LEFT_DIRECTION);
             }
         }
+
+        @Override
+        public void fasterStep() {
+            chnagedDelay -=200;
+        }
+
+        @Override
+        public void fastestStep() {
+            chnagedDelay -= 100;
+        }
+
+        @Override
+        public void lowerStep() {
+            chnagedDelay += 200;
+        }
+
+        @Override
+        public void lowestStep() {
+            chnagedDelay +=100;
+        }
     };
 
     @Override
@@ -256,7 +278,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
             public void run() {
                 runOnUiThread(() -> funcInDelay());
             }
-        }, DELAY, DELAY);
+        }, this.chnagedDelay, this.chnagedDelay);
     }
 
     public void stopTimer() {
