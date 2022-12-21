@@ -17,6 +17,13 @@ import java.util.Random;
 
 public class GameManager {
 
+    public interface CallBack_location{
+        void shortcut_configure_premission();//activate configure_premission
+        double getLatFromActivity_Game();
+        double getLogFromActivity_Game();
+    }
+
+    private CallBack_location callBack_location;
 
     protected static final int MAX_NUM_LIFES = 3;
     //private static final int MEDIUM_LEVEL_UNSEEN_DROP = 5;
@@ -35,8 +42,7 @@ public class GameManager {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public GameManager(Difficulty_Level_Builder difficultyLevelBuilder
-    ) {
+    public GameManager(Difficulty_Level_Builder difficultyLevelBuilder, CallBack_location _callBack_location) {
 
         indexesOfRocksArr = new ArrayList<>();
         indexesOfCoinsArr = new ArrayList<>();
@@ -46,6 +52,7 @@ public class GameManager {
         setRecordsArrFromSP();
         //NumStepInPhaseForRock = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
         //NumStepInPhaseForCoin = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
+        this.callBack_location = _callBack_location;
     }
 
 
@@ -225,6 +232,12 @@ public class GameManager {
         //Need to get gps location
         int latTelAviv  = 32;
         int logTelAviv = 35;
+        //double latTelAviv  = EasyDiffyActivity.getLat_Game_Easy();
+        //double logTelAviv  = EasyDiffyActivity.getLog_Game_Easy();
+        callBack_location.shortcut_configure_premission();
+        double recLat = callBack_location.getLatFromActivity_Game();
+        double recLog = callBack_location.getLatFromActivity_Game();
+
         int rPoints = this.distance+this.getScore()*2;
         Record record = new Record(localDate, latTelAviv, logTelAviv, rPoints);
         if(recordArr.getRecords().size() >= 10){

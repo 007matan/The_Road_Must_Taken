@@ -1,21 +1,31 @@
 package com.mygame.theroadmusttaken;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static com.mygame.theroadmusttaken.GameManager.MAX_NUM_LIFES;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Timer;
@@ -40,7 +50,12 @@ public class EasyDiffyActivity extends AppCompatActivity {
 
     private String stepDetctorOrder;
 
+    private LocationManager locationManager;
+    private LocationListener listener;
+
     final int DELAY = 1000;
+    public static double lat_Game_Easy = 15.3;
+    public static double log_Game_Easy = 34.9;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -52,7 +67,7 @@ public class EasyDiffyActivity extends AppCompatActivity {
 
 
 
-        gameManager = new GameManager(new Easy_Difficulty_Level_Builder());
+        gameManager = new GameManager(new Easy_Difficulty_Level_Builder(), callBack_location);
         initViews();
         updateView();
 
@@ -66,6 +81,33 @@ public class EasyDiffyActivity extends AppCompatActivity {
             main_FB_Right.setVisibility(View.INVISIBLE);
         }
 
+        //getgpslocation
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        listener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                lat_Game_Easy = location.getLatitude();
+                log_Game_Easy = location.getLongitude();
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+                //
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+                //
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+                Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(i);
+            }
+        };
 
         startTimer();
         /*
@@ -74,6 +116,75 @@ public class EasyDiffyActivity extends AppCompatActivity {
 
          */
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case 10:
+                configure_premission();
+                break;
+            default:
+                break;
+        }
+    }
+
+    void configure_premission() {
+        // first check for permissions
+        if (ActivityCompat.checkSelfPermission(EasyDiffyActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(EasyDiffyActivity.this,
+                ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                request_permission();
+            }
+        } else {
+            // permission has been granted
+            locationManager.requestLocationUpdates("gps", 5000, 0, listener);
+        }
+    }
+
+    private void request_permission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(EasyDiffyActivity.this,
+                ACCESS_COARSE_LOCATION)) {
+
+            Snackbar.make(findViewById(R.id.main_LLC_stRow_middle), "Location permission is needed because ...",
+                            Snackbar.LENGTH_LONG)
+                    .setAction("retry", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                requestPermissions(new String[]{ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 10);
+                            }
+                        }
+                    })
+                    .show();
+        } else {
+            // permission has not been granted yet. Request it directly.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 10);
+            }
+        }
+    }
+
+    private GameManager.CallBack_location callBack_location = new GameManager.CallBack_location() {
+        @Override
+        public void shortcut_configure_premission() {
+            configure_premission();
+        }
+
+        @Override
+        public double getLatFromActivity_Game() {
+            return lat_Game_Easy;
+        }
+
+        @Override
+        public double getLogFromActivity_Game() {
+            return log_Game_Easy;
+        }
+    };
 
     private StepDetector.CallBack_steps callBack_steps = new StepDetector.CallBack_steps() {
         @Override
