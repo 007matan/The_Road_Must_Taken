@@ -1,4 +1,4 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Activity;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 
@@ -26,7 +26,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-import com.mygame.theroadmusttaken.Activity.MainActivity;
 import com.mygame.theroadmusttaken.Data.Car;
 import com.mygame.theroadmusttaken.Data.Coin;
 import com.mygame.theroadmusttaken.Manegement.DataManager;
@@ -35,6 +34,7 @@ import com.mygame.theroadmusttaken.Manegement.GameManager;
 import com.mygame.theroadmusttaken.Data.Rock;
 import com.mygame.theroadmusttaken.Manegement.StepDetector;
 import com.mygame.theroadmusttaken.Protocol.CallBack_StepsProtocol;
+import com.mygame.theroadmusttaken.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

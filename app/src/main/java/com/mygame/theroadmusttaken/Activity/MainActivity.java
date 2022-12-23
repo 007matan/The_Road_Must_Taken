@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 
 import com.google.android.material.button.MaterialButton;
-import com.mygame.theroadmusttaken.EasyDiffyActivity;
-import com.mygame.theroadmusttaken.MiddleDiffyActivity;
 import com.mygame.theroadmusttaken.R;
 
 public class MainActivity extends AppCompatActivity {

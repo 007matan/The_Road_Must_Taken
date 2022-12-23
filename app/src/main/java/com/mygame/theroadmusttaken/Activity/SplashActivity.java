@@ -1,4 +1,4 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mygame.theroadmusttaken.Activity.MainActivity;
+import com.mygame.theroadmusttaken.R;
 import com.mygame.theroadmusttaken.SharedPreferences.RecordSP;
 
 public class SplashActivity extends AppCompatActivity {

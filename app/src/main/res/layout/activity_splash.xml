@@ -6,6 +6,6 @@
              android:layout_height="match_parent"
     android:screenOrientation="portrait"
              android:background="@drawable/img_car_in_nature"
-    tools:context=".SplashActivity">
+    tools:context=".Activity.SplashActivity">
 
 </RelativeLayout>

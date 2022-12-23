@@ -33,7 +33,7 @@
             android:value="AIzaSyCQZvaaMxsmUFLRRWMgt0FyqJQjx7Dg08g" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,10 +49,10 @@
             android:name=".Activity.MainActivity"
             android:label="HomePage"></activity>
         <activity
-            android:name=".EasyDiffyActivity"
+            android:name=".Activity.EasyDiffyActivity"
             android:label="HomePage"></activity>
         <activity
-            android:name=".MiddleDiffyActivity"
+            android:name=".Activity.MiddleDiffyActivity"
             android:label="HomePage"></activity>
         <activity
             android:name=".Activity.Activity_Record_Panel"
