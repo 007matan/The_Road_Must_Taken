@@ -63,8 +63,8 @@ public class MiddleDiffyActivity extends AppCompatActivity {
     private LocationListener listener;
 
     final int DELAY = 500;
-    public static double lat_Game_Medium = 30.3;
-    public static double log_Game_Medium = 38.9;
+    public  double lat_Game_Medium;
+    public  double log_Game_Medium;
     private int chnagedDelay;
 
 
@@ -222,7 +222,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                 clicked(DataManager.Car_Direction.LEFT_DIRECTION);
             }
         }
-
+        /*
         @Override
         public void fasterStep() {
             chnagedDelay -=200;
@@ -242,6 +242,8 @@ public class MiddleDiffyActivity extends AppCompatActivity {
         public void lowestStep() {
             chnagedDelay +=100;
         }
+
+         */
     };
 
     @Override

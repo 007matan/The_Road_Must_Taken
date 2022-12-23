@@ -6,8 +6,11 @@ public interface CallBack_StepsProtocol {
     void smallLeftStep();
     void bigLeftStep();
 
+/*
     void fasterStep();
     void fastestStep();
     void lowerStep();
     void lowestStep();
+
+ */
 }

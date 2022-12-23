@@ -54,7 +54,7 @@ public class StepDetector {
     };
 
     private void calculateStep(float x, float y) {
-        if (x < -6.0) {
+        if (x < -4.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -63,7 +63,7 @@ public class StepDetector {
             }
         }
 
-        if (x < -9.0) {
+        if (x < -7.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -72,7 +72,7 @@ public class StepDetector {
             }
         }
 
-        if (x > 6.0) {
+        if (x > 4.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -81,7 +81,7 @@ public class StepDetector {
             }
         }
 
-        if (x > 9.0) {
+        if (x > 7.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -90,7 +90,8 @@ public class StepDetector {
             }
         }
 
-        if (y < -6.0) {
+        /*
+        if (y < -4.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -99,7 +100,7 @@ public class StepDetector {
             }
         }
 
-        if (y < -9.0) {
+        if (y < -7.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -108,7 +109,7 @@ public class StepDetector {
             }
         }
 
-        if (y > 6.0) {
+        if (y > 4.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -117,7 +118,7 @@ public class StepDetector {
             }
         }
 
-        if (y > 9.0) {
+        if (y > 7.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
                 if (callBack_stepsProtocol != null) {
@@ -125,6 +126,8 @@ public class StepDetector {
                 }
             }
         }
+
+         */
     }
 
 }

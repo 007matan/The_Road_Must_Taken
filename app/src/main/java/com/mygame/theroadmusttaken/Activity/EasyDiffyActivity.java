@@ -65,8 +65,8 @@ public class EasyDiffyActivity extends AppCompatActivity {
     final int DELAY = 1000;
 
     private int changeDelay;
-    public static double lat_Game_Easy = 15.3;
-    public static double log_Game_Easy = 34.9;
+    public double lat_Game_Easy;
+    public  double log_Game_Easy;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -224,7 +224,7 @@ public class EasyDiffyActivity extends AppCompatActivity {
                 clicked(DataManager.Car_Direction.LEFT_DIRECTION);
             }
         }
-
+/*
         @Override
         public void fasterStep() {
             changeDelay -=200;
@@ -244,6 +244,8 @@ public class EasyDiffyActivity extends AppCompatActivity {
         public void lowestStep() {
             changeDelay +=100;
         }
+
+ */
     };
 
     @Override
