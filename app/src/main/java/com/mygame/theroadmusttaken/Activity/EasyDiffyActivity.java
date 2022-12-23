@@ -134,12 +134,8 @@ public class EasyDiffyActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode) {
-            case 10:
-                configure_premission();
-                break;
-            default:
-                break;
+        if(requestCode == 10){
+            configure_premission();
         }
     }
 

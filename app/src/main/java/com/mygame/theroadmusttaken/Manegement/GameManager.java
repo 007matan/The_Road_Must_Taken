@@ -225,14 +225,12 @@ public class GameManager {
     private void insertRecord() {
         LocalDate localDate = LocalDate.now();
         //Need to get gps location
-        int latTelAviv  = 32;
-        int logTelAviv = 35;
         callBack_locationsProtocol.shortcut_configure_premission();
         double recLat = callBack_locationsProtocol.getLatFromActivity_Game();
         double recLog = callBack_locationsProtocol.getLogFromActivity_Game();
 
         int rPoints = this.distance+this.getScore()*2;
-        Record record = new Record(localDate, latTelAviv, logTelAviv, rPoints);
+        Record record = new Record(localDate, recLat, recLog, rPoints);
         if(recordArr.getRecords().size() >= 10){
             this.recordArr.getRecords().add(record);
             Collections.sort(recordArr.getRecords());
@@ -242,19 +240,8 @@ public class GameManager {
             this.recordArr.getRecords().add(record);
         }
 
-        //RecordSP.getInstance().putString("1", "walla");
-
         String recordListJson = new Gson().toJson(recordArr);
         RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", recordListJson);
-
-        //First install Jackson
-        /*
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        String rJson = mapper.writeWithDefaultPrettyPrinter().writeValueAsString(recordArr);
-        RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", rJson);
-
-         */
 
     }
 

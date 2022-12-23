@@ -48,7 +48,7 @@ public class Activity_Record_Panel extends AppCompatActivity {
      *
      * The function activate marker function at mapfragment with the record values
      *
-     * @param record
+     * @param record Record to show
      */
     void showRecordLocation(Record record){
         double lat = record.getLat();
