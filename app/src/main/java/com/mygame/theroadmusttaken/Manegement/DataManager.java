@@ -1,4 +1,11 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Manegement;
+
+import com.mygame.theroadmusttaken.Data.Car;
+import com.mygame.theroadmusttaken.Data.Cell;
+import com.mygame.theroadmusttaken.Data.Coin;
+import com.mygame.theroadmusttaken.Data.Difficulty_Level_Builder;
+import com.mygame.theroadmusttaken.Data.Game_Layout;
+import com.mygame.theroadmusttaken.Data.Rock;
 
 import java.util.ArrayList;
 

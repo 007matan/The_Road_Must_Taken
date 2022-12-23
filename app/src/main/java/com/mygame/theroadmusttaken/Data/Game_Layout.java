@@ -1,4 +1,7 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Data;
+
+import com.mygame.theroadmusttaken.Data.Difficulty_Level;
+import com.mygame.theroadmusttaken.Data.Difficulty_Level_Builder;
 
 public class Game_Layout {
 

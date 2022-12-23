@@ -1,4 +1,4 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.SharedPreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;

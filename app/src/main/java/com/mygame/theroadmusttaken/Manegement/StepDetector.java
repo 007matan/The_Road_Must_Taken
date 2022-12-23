@@ -1,10 +1,12 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Manegement;
 
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+
+import com.mygame.theroadmusttaken.Protocol.CallBack_StepsProtocol;
 
 public class StepDetector {
 

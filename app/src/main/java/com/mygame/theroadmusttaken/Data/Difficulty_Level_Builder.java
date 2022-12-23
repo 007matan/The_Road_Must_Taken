@@ -1,8 +1,9 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Data;
 
-abstract class Difficulty_Level_Builder {
 
-    protected Difficulty_Level difficultyLevel;
+public abstract class Difficulty_Level_Builder {
+
+    public Difficulty_Level difficultyLevel;
 
     public Difficulty_Level getDifficultyLevel() {
         return difficultyLevel;

@@ -1,4 +1,4 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Data;
 
 public abstract class Layout_Icons{
     protected int imageRes;

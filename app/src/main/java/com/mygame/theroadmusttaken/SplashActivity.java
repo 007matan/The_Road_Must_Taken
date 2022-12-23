@@ -3,14 +3,11 @@ package com.mygame.theroadmusttaken;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
-
-import java.time.LocalDate;
-import java.util.Date;
+import com.mygame.theroadmusttaken.Activity.MainActivity;
+import com.mygame.theroadmusttaken.SharedPreferences.RecordSP;
 
 public class SplashActivity extends AppCompatActivity {
     @Override

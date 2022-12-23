@@ -1,4 +1,4 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Protocol;
 
 public interface CallBack_StepsProtocol {
     void smallRightStep();

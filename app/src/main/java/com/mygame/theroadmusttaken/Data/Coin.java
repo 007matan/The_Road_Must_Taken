@@ -1,4 +1,6 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Data;
+
+import com.mygame.theroadmusttaken.R;
 
 public class Coin extends Layout_Icons{
 

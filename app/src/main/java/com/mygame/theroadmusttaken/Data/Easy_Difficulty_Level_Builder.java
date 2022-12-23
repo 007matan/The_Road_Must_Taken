@@ -1,6 +1,7 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Data;
 
 
+import com.mygame.theroadmusttaken.Exceptions.PossibleNumberOfColumnException;
 
 public class Easy_Difficulty_Level_Builder extends Difficulty_Level_Builder{
 
