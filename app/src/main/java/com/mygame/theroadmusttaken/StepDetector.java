@@ -8,33 +8,23 @@ import android.hardware.SensorManager;
 
 public class StepDetector {
 
-    public interface CallBack_steps {
-        void smallRightStep();
-        void bigRightStep();
-        void smallLeftStep();
-        void bigLeftStep();
 
-        void fasterStep();
-        void fastestStep();
-        void lowerStep();
-        void lowestStep();
-    }
 
     private SensorManager sensorManager;
     private Sensor sensor;
 
     int timeStamp = 0;
 
-    private CallBack_steps callBack_steps;
+    private CallBack_StepsProtocol callBack_stepsProtocol;
 
     /**
      * Step detector constructor
      * @param context the context of the activity or application or service
      */
-    public StepDetector(Context context, CallBack_steps _callBack_steps) {
+    public StepDetector(Context context, CallBack_StepsProtocol _callBack_stepsProtocol) {
         sensorManager = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        this.callBack_steps = _callBack_steps;
+        this.callBack_stepsProtocol = _callBack_stepsProtocol;
     }
 
 
@@ -65,8 +55,8 @@ public class StepDetector {
         if (x < -6.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.smallLeftStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.smallLeftStep();
                 }
             }
         }
@@ -74,8 +64,8 @@ public class StepDetector {
         if (x < -9.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.bigLeftStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.bigLeftStep();
                 }
             }
         }
@@ -83,8 +73,8 @@ public class StepDetector {
         if (x > 6.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.smallRightStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.smallRightStep();
                 }
             }
         }
@@ -92,8 +82,8 @@ public class StepDetector {
         if (x > 9.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.bigRightStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.bigRightStep();
                 }
             }
         }
@@ -101,8 +91,8 @@ public class StepDetector {
         if (y < -6.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.lowerStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.lowerStep();
                 }
             }
         }
@@ -110,8 +100,8 @@ public class StepDetector {
         if (y < -9.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.lowestStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.lowestStep();
                 }
             }
         }
@@ -119,8 +109,8 @@ public class StepDetector {
         if (y > 6.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.fasterStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.fasterStep();
                 }
             }
         }
@@ -128,8 +118,8 @@ public class StepDetector {
         if (y > 9.0) {
             if (System.currentTimeMillis() - timeStamp > 500) {
                 timeStamp = (int) System.currentTimeMillis();
-                if (callBack_steps != null) {
-                    callBack_steps.fastestStep();
+                if (callBack_stepsProtocol != null) {
+                    callBack_stepsProtocol.fastestStep();
                 }
             }
         }

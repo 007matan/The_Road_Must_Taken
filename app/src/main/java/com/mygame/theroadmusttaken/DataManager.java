@@ -11,17 +11,8 @@ public class DataManager {
 
     private Game_Layout gameLayout;
     private ArrayList<Cell> roadsLayoutMatrix;
-    /*
-    public DataManager()
-    {
-        gameLayout = new Game_Layout();
-        roadsLayoutMatrix= new ArrayList<>();
-    }
-    */
+
     public DataManager (Difficulty_Level_Builder difficultyLevelBuilder){
-        //super();
-        gameLayout = new Game_Layout();
-        roadsLayoutMatrix= new ArrayList<>();
         gameLayout = new Game_Layout();
         roadsLayoutMatrix= new ArrayList<>();
         gameLayout.setDifficultyLevelBuilder(difficultyLevelBuilder);
@@ -35,7 +26,7 @@ public class DataManager {
         for(int i = 0; i < numberCols * numberRows; i++){
             roadsLayoutMatrix.add(new Cell()
                     .setCar(null)
-                    /*.setCoin(new Coin())*/
+                    /*.setCoin(null)*/
                     .setRock(null));
         }
 

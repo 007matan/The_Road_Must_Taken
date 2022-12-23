@@ -7,6 +7,7 @@ public class Cell {
     private Car car;
 
     public Cell(){
+
     }
 
     public Cell setCoin(Coin coin) {

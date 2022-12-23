@@ -24,12 +24,26 @@ public class Activity_Record_Panel extends AppCompatActivity {
 
     }
 
+
     CallBack_RecordsProtocol callBack_recordsProtocol = new CallBack_RecordsProtocol() {
+
+        /**
+         * CallBack_RecordsProtocol function - here it activate inner class function called
+         * showRecordLocation
+         * @param record - and pass it to the inner class function / do what inside recordP()
+         */
         @Override
         public void recordP(Record record) {
             showRecordLocation(record);
         }
     };
+
+    /**
+     *
+     * The function activate marker function at mapfragment with the record values
+     *
+     * @param record
+     */
     void showRecordLocation(Record record){
         double lat = record.getLat();
         double log = record.getLog();

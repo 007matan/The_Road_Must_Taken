@@ -6,6 +6,7 @@ public class Difficulty_Level {
     private int heartNum;
     private int matRows;
     private int matCols;
+
     private int NUM_STEP_IN_PHASE;
 
     public int getNUM_STEP_IN_PHASE() {

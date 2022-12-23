@@ -79,7 +79,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
             stepDetctorOrder = extras.getString("input_type");
         }
         if(stepDetctorOrder.contains("SENSORS")) {
-            stepDetector = new StepDetector(this, callBack_steps);
+            stepDetector = new StepDetector(this, callBack_stepsProtocol);
             main_FB_Right_middle.setVisibility(View.INVISIBLE);
             main_FB_Left_middle.setVisibility(View.INVISIBLE);
         }
@@ -200,7 +200,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
         }
     };
 
-    private StepDetector.CallBack_steps callBack_steps = new StepDetector.CallBack_steps() {
+    private CallBack_StepsProtocol callBack_stepsProtocol = new CallBack_StepsProtocol() {
         @Override
         public void smallRightStep() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
