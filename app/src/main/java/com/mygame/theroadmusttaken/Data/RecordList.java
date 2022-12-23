@@ -21,7 +21,7 @@ public class RecordList {
         return records;
     }
 
-    public RecordList setRecords(ArrayList<Record> songs) {
+    public RecordList setRecords(ArrayList<Record> records) {
         this.records = records;
         return this;
     }

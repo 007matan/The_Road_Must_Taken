@@ -224,13 +224,14 @@ public class GameManager {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void insertRecord() {
         LocalDate localDate = LocalDate.now();
+        String localDateStr = localDate.toString();
         //Need to get gps location
         callBack_locationsProtocol.shortcut_configure_premission();
         double recLat = callBack_locationsProtocol.getLatFromActivity_Game();
         double recLog = callBack_locationsProtocol.getLogFromActivity_Game();
 
         int rPoints = this.distance+this.getScore()*2;
-        Record record = new Record(localDate, recLat, recLog, rPoints);
+        Record record = new Record(localDateStr, recLat, recLog, rPoints);
         if(recordArr.getRecords().size() >= 10){
             this.recordArr.getRecords().add(record);
             Collections.sort(recordArr.getRecords());

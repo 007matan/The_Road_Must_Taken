@@ -9,23 +9,23 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Record implements Comparable {
-    private LocalDate recordDate;
+    private String recordDate;
     private double lat;
     private double log;
     private int points; // (score + f(distance)
 
-    public Record(LocalDate recordDate, double lat, double log, int points){
+    public Record(String recordDate, double lat, double log, int points){
         setLat(lat);
         setLog(log);
         setRecordDate(recordDate);
         setPoints(points);
     }
 
-    public LocalDate getRecordDate() {
+    public String getRecordDate() {
         return recordDate;
     }
 
-    public void setRecordDate(LocalDate recordDate) {
+    public void setRecordDate(String recordDate) {
         this.recordDate = recordDate;
     }
 
@@ -56,7 +56,7 @@ public class Record implements Comparable {
     public String toString(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
 
-        String reVal = "" + this.getPoints() + " " + dtf.format(this.getRecordDate()) + " " +
+        String reVal = "" + this.getPoints() + " " + this.getRecordDate() + " " +
                 this.lat + " " + this.log;
         return reVal;
     }
