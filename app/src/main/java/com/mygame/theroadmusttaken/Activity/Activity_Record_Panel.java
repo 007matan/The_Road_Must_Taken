@@ -1,9 +1,15 @@
-package com.mygame.theroadmusttaken;
+package com.mygame.theroadmusttaken.Activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.mygame.theroadmusttaken.CallBack_RecordsProtocol;
+import com.mygame.theroadmusttaken.Fragment_Lists;
+import com.mygame.theroadmusttaken.MapFragment;
+import com.mygame.theroadmusttaken.R;
+import com.mygame.theroadmusttaken.Record;
 
 public class Activity_Record_Panel extends AppCompatActivity {
     private Fragment_Lists fragment_lists;

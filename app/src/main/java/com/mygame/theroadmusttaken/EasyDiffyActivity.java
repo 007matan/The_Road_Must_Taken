@@ -1,7 +1,6 @@
 package com.mygame.theroadmusttaken;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static com.mygame.theroadmusttaken.GameManager.MAX_NUM_LIFES;
 
 import android.Manifest;
 import android.content.Context;
@@ -383,8 +382,9 @@ public class EasyDiffyActivity extends AppCompatActivity {
         for(idx = 0; idx < gameManager.getLifes(); idx++) {
             main_IMG_lives[idx].setVisibility(View.VISIBLE);
         }
-        for(int sidx=gameManager.getLifes(); sidx < MAX_NUM_LIFES; sidx++) {
+        for(int sidx=gameManager.getLifes(); sidx < gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getHeartNum(); sidx++) {
             main_IMG_lives[sidx].setVisibility(View.INVISIBLE);
+
         }
     }
 

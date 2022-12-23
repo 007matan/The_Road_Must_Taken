@@ -18,8 +18,4 @@ public class Car extends Layout_Icons{
     public int getImageRes() {
         return imageRes;
     }
-    @Override
-    public boolean isVisable() {
-        return false;
-    }
 }

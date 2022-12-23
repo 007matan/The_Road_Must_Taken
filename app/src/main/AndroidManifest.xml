@@ -55,7 +55,7 @@
             android:name=".MiddleDiffyActivity"
             android:label="HomePage"></activity>
         <activity
-            android:name=".Activity_Record_Panel"
+            android:name=".Activity.Activity_Record_Panel"
             android:label="HomePage"></activity>
     </application>
 

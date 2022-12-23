@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DataManager {
 
-    enum Car_Direction {
+    public enum Car_Direction {
         RIGHT_DIRECTION,
         LEFT_DIRECTION
     }

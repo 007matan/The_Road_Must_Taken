@@ -25,7 +25,6 @@ public class GameManager {
 
     private CallBack_location callBack_location;
 
-    protected static final int MAX_NUM_LIFES = 3;
     //private static final int MEDIUM_LEVEL_UNSEEN_DROP = 5;
     //private static final int EASY_LEVEL_UNSEEN_DROP = 8;
     private DataManager dataManager;
