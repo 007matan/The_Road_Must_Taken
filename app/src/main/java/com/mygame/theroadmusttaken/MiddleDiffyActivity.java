@@ -120,13 +120,6 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                 startActivity(i);
             }
         };
-/*
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                configure_button();
-            }
-        });*/
         chnagedDelay = DELAY;
         startTimer();
         /*
@@ -134,9 +127,6 @@ public class MiddleDiffyActivity extends AppCompatActivity {
             funcInDelay();
 
          */
-
-
-
     }
 
     @Override
@@ -340,14 +330,6 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                     gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatRows()) {
                 main_SIM_MatNodes_middle[indexRock].setImageResource(new Rock().getImageRes());
             }
-
-
-            /*
-            if(indexRock < gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                    gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
-                main_SIM_MatNodes[indexRock].setImageResource(new Rock().getImageRes());
-            }
-             */
         }
         for(int i = 0; i < gameManager.getIndexesOfCoinsArr().size() &&
                 gameManager.getIndexesOfCoinsArr().get(i) >= 0; i++){
@@ -356,18 +338,8 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                     gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatRows()) {
                 main_SIM_MatNodes_middle[indexCoin].setImageResource(new Coin().getImageRes());
             }
-            /*
-            if(indexCoin < gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                    gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
-                main_SIM_MatNodes[indexCoin].setImageResource(new Coin().getImageRes());
-            }
-             */
         }
         main_SIM_MatNodes_middle[gameManager.getDataManager().getIndexOfRacingCar()].setImageResource(new Car().getImageRes());
-        //gameManager.getIndexesOfRocksArr(); - for DONE
-        //coins
-        //gameManager.getIndexOfCar(); - Done
-        //lives - Done
 
         updateLifeView();
         updateScoreView();

@@ -349,29 +349,13 @@ public class EasyDiffyActivity extends AppCompatActivity {
             indexRock = gameManager.getIndexesOfRocksArr().get(i);
             main_SIM_MatNodes[indexRock].setImageResource(new Rock().getImageRes());
 
-            /*
-            if(indexRock < gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                    gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
-                main_SIM_MatNodes[indexRock].setImageResource(new Rock().getImageRes());
-            }
-             */
         }
         for(int i = 0; i < gameManager.getIndexesOfCoinsArr().size() &&
                 gameManager.getIndexesOfCoinsArr().get(i) >= 0; i++){
             indexCoin = gameManager.getIndexesOfCoinsArr().get(i);
             main_SIM_MatNodes[indexCoin].setImageResource(new Coin().getImageRes());
-            /*
-            if(indexCoin < gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                    gameManager.getDataManager().getGameLayout().getDifficultyLevelBuilder().getMatCols()) {
-                main_SIM_MatNodes[indexCoin].setImageResource(new Coin().getImageRes());
-            }
-             */
         }
         main_SIM_MatNodes[gameManager.getDataManager().getIndexOfRacingCar()].setImageResource(new Car().getImageRes());
-        //gameManager.getIndexesOfRocksArr(); - for DONE
-        //coins
-        //gameManager.getIndexOfCar(); - Done
-        //lives - Done
 
         updateLifeView();
         updateScoreView();
