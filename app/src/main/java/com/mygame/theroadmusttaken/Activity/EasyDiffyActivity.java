@@ -33,6 +33,7 @@ import com.mygame.theroadmusttaken.Data.Easy_Difficulty_Level_Builder;
 import com.mygame.theroadmusttaken.Manegement.GameManager;
 import com.mygame.theroadmusttaken.Data.Rock;
 import com.mygame.theroadmusttaken.Manegement.StepDetector;
+import com.mygame.theroadmusttaken.Protocol.CallBack_LocationsProtocol;
 import com.mygame.theroadmusttaken.Protocol.CallBack_StepsProtocol;
 import com.mygame.theroadmusttaken.R;
 
@@ -77,7 +78,7 @@ public class EasyDiffyActivity extends AppCompatActivity {
 
 
 
-        gameManager = new GameManager(new Easy_Difficulty_Level_Builder(), callBack_location);
+        gameManager = new GameManager(new Easy_Difficulty_Level_Builder(), callBack_locationsProtocol);
         initViews();
         updateView();
 
@@ -180,7 +181,7 @@ public class EasyDiffyActivity extends AppCompatActivity {
         }
     }
 
-    private GameManager.CallBack_location callBack_location = new GameManager.CallBack_location() {
+    private CallBack_LocationsProtocol callBack_locationsProtocol = new CallBack_LocationsProtocol() {
         @Override
         public void shortcut_configure_premission() {
             configure_premission();

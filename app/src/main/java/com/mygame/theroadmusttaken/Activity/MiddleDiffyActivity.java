@@ -33,6 +33,7 @@ import com.mygame.theroadmusttaken.Manegement.GameManager;
 import com.mygame.theroadmusttaken.Data.Middle_Difficulty_Level_Builder;
 import com.mygame.theroadmusttaken.Data.Rock;
 import com.mygame.theroadmusttaken.Manegement.StepDetector;
+import com.mygame.theroadmusttaken.Protocol.CallBack_LocationsProtocol;
 import com.mygame.theroadmusttaken.Protocol.CallBack_StepsProtocol;
 import com.mygame.theroadmusttaken.R;
 
@@ -75,7 +76,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_middle);
         findViews();
 
-        gameManager = new GameManager(new Middle_Difficulty_Level_Builder(), callBack_location);
+        gameManager = new GameManager(new Middle_Difficulty_Level_Builder(), callBack_locationsProtocol);
 
         initViews();
         updateView();
@@ -123,10 +124,10 @@ public class MiddleDiffyActivity extends AppCompatActivity {
         chnagedDelay = DELAY;
         startTimer();
         /*
-        for(int i = 0; i < 20; i++)
-            funcInDelay();
+         for(int i = 0; i < 20; i++)
+             funcInDelay();
 
-         */
+        */
     }
 
     @Override
@@ -134,12 +135,8 @@ public class MiddleDiffyActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode) {
-            case 10:
-                configure_premission();
-                break;
-            default:
-                break;
+        if(requestCode == 10) {
+            configure_premission();
         }
     }
 
@@ -164,12 +161,9 @@ public class MiddleDiffyActivity extends AppCompatActivity {
 
             Snackbar.make(findViewById(R.id.main_LLC_stRow_middle), "Location permission is needed because ...",
                             Snackbar.LENGTH_LONG)
-                    .setAction("retry", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                requestPermissions(new String[]{ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 10);
-                            }
+                    .setAction("retry", view -> {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            requestPermissions(new String[]{ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 10);
                         }
                     })
                     .show();
@@ -181,7 +175,7 @@ public class MiddleDiffyActivity extends AppCompatActivity {
         }
     }
 
-    private GameManager.CallBack_location callBack_location = new GameManager.CallBack_location() {
+    private CallBack_LocationsProtocol callBack_locationsProtocol = new CallBack_LocationsProtocol() {
         @Override
         public void shortcut_configure_premission() {
             configure_premission();

@@ -25,16 +25,6 @@ public class RecordSP {
         preferences = context.getSharedPreferences(DB_FILE, Context.MODE_PRIVATE);
     }
 
-    public void putInt(String key, int value) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(key, value);
-        editor.apply();
-    }
-
-    public int getInt(String key, int def) {
-        return preferences.getInt(key, def);
-    }
-
     public void putString(String key, String value) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);

@@ -2,10 +2,8 @@ package com.mygame.theroadmusttaken.Manegement;
 
 import com.mygame.theroadmusttaken.Data.Car;
 import com.mygame.theroadmusttaken.Data.Cell;
-import com.mygame.theroadmusttaken.Data.Coin;
 import com.mygame.theroadmusttaken.Data.Difficulty_Level_Builder;
 import com.mygame.theroadmusttaken.Data.Game_Layout;
-import com.mygame.theroadmusttaken.Data.Rock;
 
 import java.util.ArrayList;
 
@@ -71,21 +69,6 @@ public class DataManager {
         return -1;
     }
 
-    private void setRockIndex(int indexOfRock){
-        getRoadsLayoutMatrix().get(indexOfRock).setRock(null);
-        if(indexOfRock+getGameLayout().getDifficultyLevelBuilder().getMatCols() <
-                getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                        getGameLayout().getDifficultyLevelBuilder().getMatRows())
-            getRoadsLayoutMatrix().get(indexOfRock+getGameLayout().getDifficultyLevelBuilder().getMatCols()).setRock(new Rock());
-    }
-
-    private void setCoinIndex(int indexOfCoin){
-        getRoadsLayoutMatrix().get(indexOfCoin).setCoin(null);
-        if(indexOfCoin+getGameLayout().getDifficultyLevelBuilder().getMatCols() <
-                getGameLayout().getDifficultyLevelBuilder().getMatCols() *
-                        getGameLayout().getDifficultyLevelBuilder().getMatRows())
-            getRoadsLayoutMatrix().get(indexOfCoin+getGameLayout().getDifficultyLevelBuilder().getMatCols()).setCoin(new Coin());
-    }
 
 
 }

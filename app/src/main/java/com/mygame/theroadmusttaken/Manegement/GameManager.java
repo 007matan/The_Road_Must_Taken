@@ -11,42 +11,35 @@ import com.mygame.theroadmusttaken.Data.Difficulty_Level_Builder;
 import com.mygame.theroadmusttaken.Data.Record;
 import com.mygame.theroadmusttaken.Data.Rock;
 import com.mygame.theroadmusttaken.Data.RecordList;
+import com.mygame.theroadmusttaken.Protocol.CallBack_LocationsProtocol;
 import com.mygame.theroadmusttaken.SharedPreferences.RecordSP;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
+import java.util.Objects;
 import java.util.Random;
 
 
 public class GameManager {
 
-    public interface CallBack_location{
-        void shortcut_configure_premission();//activate configure_premission
-        double getLatFromActivity_Game();
-        double getLogFromActivity_Game();
-    }
 
-    private CallBack_location callBack_location;
+    private CallBack_LocationsProtocol callBack_locationsProtocol;
 
-    //private static final int MEDIUM_LEVEL_UNSEEN_DROP = 5;
-    //private static final int EASY_LEVEL_UNSEEN_DROP = 8;
+
     private DataManager dataManager;
-    //private int indexOfCar; // Moving Right & Left
     private ArrayList<Integer> indexesOfRocksArr;// Moving Down
     private ArrayList<Integer> indexesOfCoinsArr;// Moving Down
     private int lifes;
     private int score;
     private int distance;
-    //private static int NumStepInPhaseForRock = 0;
-    //private static int NumStepInPhaseForCoin = 0;
+
 
     private RecordList recordArr;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public GameManager(Difficulty_Level_Builder difficultyLevelBuilder, CallBack_location _callBack_location) {
+    public GameManager(Difficulty_Level_Builder difficultyLevelBuilder, CallBack_LocationsProtocol _callBack_locationsProtocol) {
 
         indexesOfRocksArr = new ArrayList<>();
         indexesOfCoinsArr = new ArrayList<>();
@@ -54,9 +47,7 @@ public class GameManager {
         dataManager = new DataManager(difficultyLevelBuilder);
         initRoadGame();
         setRecordsArrFromSP();
-        //NumStepInPhaseForRock = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
-        //NumStepInPhaseForCoin = getDataManager().getGameLayout().getDifficultyLevelBuilder().getNUM_STEP_IN_PHASE();
-        this.callBack_location = _callBack_location;
+        this.callBack_locationsProtocol = _callBack_locationsProtocol;
     }
 
 
@@ -222,25 +213,23 @@ public class GameManager {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setRecordsArrFromSP() {
+        RecordList recordList;
         String recordListSP = RecordSP.getInstance().getString("SP_KEY_RECORD_LIST", "Nun");
-        if(recordListSP != "Nun") {
-            RecordList recordList = new Gson().fromJson(recordListSP, RecordList.class);
+        if(!Objects.equals(recordListSP, "Nun")) {
+            recordList = new Gson().fromJson(recordListSP, RecordList.class);
             this.recordArr = recordList;
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void insertRecord() {
-        Date date = new Date();
         LocalDate localDate = LocalDate.now();
         //Need to get gps location
         int latTelAviv  = 32;
         int logTelAviv = 35;
-        //double latTelAviv  = EasyDiffyActivity.getLat_Game_Easy();
-        //double logTelAviv  = EasyDiffyActivity.getLog_Game_Easy();
-        callBack_location.shortcut_configure_premission();
-        double recLat = callBack_location.getLatFromActivity_Game();
-        double recLog = callBack_location.getLogFromActivity_Game();
+        callBack_locationsProtocol.shortcut_configure_premission();
+        double recLat = callBack_locationsProtocol.getLatFromActivity_Game();
+        double recLog = callBack_locationsProtocol.getLogFromActivity_Game();
 
         int rPoints = this.distance+this.getScore()*2;
         Record record = new Record(localDate, latTelAviv, logTelAviv, rPoints);

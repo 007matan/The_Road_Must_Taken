@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         //Check
         //RecordSP.getInstance().putString("1", "walla");
 
-        /*  //The First and Onlny arr insert
+        /*  //The First and Only arr insert
         RecordList recordArr = new RecordList();
         Date date = new Date();
         LocalDate localDate = null;
@@ -47,13 +47,10 @@ public class SplashActivity extends AppCompatActivity {
          */
 
         final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        handler.postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, 3000);
 
     }
