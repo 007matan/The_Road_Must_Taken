@@ -1,6 +1,7 @@
 package com.mygame.theroadmusttaken.Manegement;
 
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
@@ -227,22 +228,31 @@ public class GameManager {
         String localDateStr = localDate.toString();
         //Need to get gps location
         callBack_locationsProtocol.shortcut_configure_premission();
-        double recLat = callBack_locationsProtocol.getLatFromActivity_Game();
-        double recLog = callBack_locationsProtocol.getLogFromActivity_Game();
+        //Delay
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                double recLat = callBack_locationsProtocol.getLatFromActivity_Game();
+                double recLog = callBack_locationsProtocol.getLogFromActivity_Game();
+                int rPoints = GameManager.this.distance+GameManager.this.getScore()*2;
+                Record record = new Record(localDateStr, recLat, recLog, rPoints);
+                if(recordArr.getRecords().size() >= 10){
+                    GameManager.this.recordArr.getRecords().add(record);
+                    Collections.sort(recordArr.getRecords());
+                    GameManager.this.recordArr.getRecords().remove(0);
+                }
+                else{
+                    GameManager.this.recordArr.getRecords().add(record);
+                }
 
-        int rPoints = this.distance+this.getScore()*2;
-        Record record = new Record(localDateStr, recLat, recLog, rPoints);
-        if(recordArr.getRecords().size() >= 10){
-            this.recordArr.getRecords().add(record);
-            Collections.sort(recordArr.getRecords());
-            this.recordArr.getRecords().remove(0);
-        }
-        else{
-            this.recordArr.getRecords().add(record);
-        }
+                String recordListJson = new Gson().toJson(recordArr);
+                RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", recordListJson);
+            }
+        }, 7000);
 
-        String recordListJson = new Gson().toJson(recordArr);
-        RecordSP.getInstance().putString("SP_KEY_RECORD_LIST", recordListJson);
+
+
 
     }
 
